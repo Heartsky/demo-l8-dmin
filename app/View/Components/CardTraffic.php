@@ -11,9 +11,12 @@ class CardTraffic extends Component
      *
      * @return void
      */
-    public function __construct()
+    private $total;
+    private $balance;
+    public function __construct($total, $balance)
     {
-        //
+        $this->total = $total;
+        $this->balance = $balance;
     }
 
     /**
@@ -23,6 +26,6 @@ class CardTraffic extends Component
      */
     public function render()
     {
-        return view('backend.components.cards.traffic');
+        return view('backend.components.cards.traffic', ['total' => $this->total, 'balance' => $this->balance]);
     }
 }

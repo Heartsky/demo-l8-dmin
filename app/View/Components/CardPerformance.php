@@ -11,9 +11,12 @@ class CardPerformance extends Component
      *
      * @return void
      */
-    public function __construct()
+    private $total;
+    private $balance;
+    public function __construct($total, $balance)
     {
-        //
+        $this->total = $total;
+        $this->balance = $balance;
     }
 
     /**
@@ -23,6 +26,6 @@ class CardPerformance extends Component
      */
     public function render()
     {
-        return view('backend.components.cards.performance');
+        return view('backend.components.cards.performance' ,['total' => $this->total, 'balance' => $this->balance]);
     }
 }

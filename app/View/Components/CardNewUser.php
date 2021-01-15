@@ -11,9 +11,13 @@ class CardNewUser extends Component
      *
      * @return void
      */
-    public function __construct()
+
+    private $total;
+    private $balance;
+    public function __construct($total, $balance)
     {
-        //
+        $this->total = $total;
+        $this->balance = $balance;
     }
 
     /**
@@ -23,6 +27,6 @@ class CardNewUser extends Component
      */
     public function render()
     {
-        return view('backend.components.cards.new_user');
+        return view('backend.components.cards.new_user', ['total' => $this->total, 'balance' => $this->balance]);
     }
 }
