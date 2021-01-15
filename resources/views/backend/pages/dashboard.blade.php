@@ -1,8 +1,7 @@
 @extends('backend.app')
 
 @section('content')
-    @include('backend.layouts.headers.cards')
-
+    <x-cards />
     <div class="container-fluid mt--7">
         <div class="row">
             <div class="col-xl-8 mb-5 mb-xl-0">
