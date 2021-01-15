@@ -27,6 +27,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
+// const app = new Vue({
+//     el: '#app',
+// });
+
+Vue.component('dashboard',require('./components/Dashboard.vue').default );
+
+const app2 = new Vue({
+    el: '#dashboard'
 });
