@@ -20,8 +20,6 @@
 // Bootstrap Datepicker
 //
 
-return;
-
 'use strict';
 
 var Datepicker = (function() {
