@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Facades\Workflow;
+use App\Facades\WorkflowExport;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller
+class ExportController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       // $this->middleware('auth');
+
     }
 
     /**
@@ -23,6 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('backend/pages/dashboard');
+        WorkflowExport::exportSample();
     }
 }
