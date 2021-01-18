@@ -1,7 +1,7 @@
-@extends('frontend.layouts.app', ['class' => 'bg-default'])
+@extends('layouts.app', ['class' => 'bg-default'])
 
 @section('content')
-    @include('frontend.layouts.headers.guest')
+    @include('layouts.headers.guest')
 
     <div class="container mt--8 pb-5">
         <div class="row justify-content-center">
@@ -17,9 +17,9 @@
                                     {{ __('A fresh verification link has been sent to your email address.') }}
                                 </div>
                             @endif
-
+                            
                             {{ __('Before proceeding, please check your email for a verification link.') }}
-
+                            
                             @if (Route::has('verification.resend'))
                                 {{ __('If you did not receive the email') }}, <a href="{{ route('verification.resend') }}">{{ __('click here to request another') }}</a>
                             @endif

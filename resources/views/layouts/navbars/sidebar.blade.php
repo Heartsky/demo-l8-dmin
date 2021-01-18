@@ -84,21 +84,76 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-examples" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
-                        <i class="fab fa-laravel" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Laravel Examples') }}</span>
+                    <a class="nav-link active" href="#navbar-statement" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-statement">
+                        <i class="ni ni-calendar-grid-58" style="color: #f4645f;"></i>
+                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Statement') }}</span>
                     </a>
 
-                    <div class="collapse show" id="navbar-examples">
+                    <div class="collapse show" id="navbar-statement">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
-                                    {{ __('User profile') }}
+                                <a class="nav-link" href="#">
+                                    {{ __('Working Survey') }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Union Funds') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
-                                    {{ __('User Management') }}
+                                <a class="nav-link" href="#">
+                                    {{ __('Cash Funds') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Customer Revenue') }}
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-customer" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-customer">
+                        <i class="ni ni-diamond"></i>
+                        <span class="nav-link-text" >{{ __('Customer  Management') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-customer">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('List Customer') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-staff" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-staff">
+                        <i class="ni ni-circle-08" ></i>
+                        <span class="nav-link-text" >{{ __('Staff Management') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-staff">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('List staff') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Add Staff') }}
                                 </a>
                             </li>
                         </ul>
@@ -106,33 +161,97 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('icons') }}">
-                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}
+                    <a class="nav-link" href="#navbar-account" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-account">
+                        <i class="ni ni-collection"></i>
+                        <span class="nav-link-text">{{ __('Account Management') }}</span>
                     </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="{{ route('map') }}">
-                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('table') }}">
-                      <i class="ni ni-bullet-list-67 text-default"></i>
-                      <span class="nav-link-text">Tables</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}
-                    </a>
-                </li>
-                <li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">
-                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">
-                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO
-                    </a>
-                </li>
-            </ul>
 
+                    <div class="collapse" id="navbar-account">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('List Account') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Add Account') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#navbar-user" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-user">
+                        <i class="ni ni-single-02" ></i>
+                        <span class="nav-link-text">{{ __('Profile') }}</span>
+                    </a>
+
+                    <div class="collapse" id="navbar-user">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                    {{ __('Profile') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">
+                                    {{ __('Setting') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('icons') }}">--}}
+{{--                        <i class="ni ni-planet text-blue"></i> {{ __('Icons') }}--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item ">--}}
+{{--                    <a class="nav-link" href="{{ route('map') }}">--}}
+{{--                        <i class="ni ni-pin-3 text-orange"></i> {{ __('Maps') }}--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="{{ route('table') }}">--}}
+{{--                      <i class="ni ni-bullet-list-67 text-default"></i>--}}
+{{--                      <span class="nav-link-text">Tables</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="#">--}}
+{{--                        <i class="ni ni-circle-08 text-pink"></i> {{ __('Register') }}--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item mb-5 mr-4 ml-4 pl-1 bg-danger" style="position: absolute; bottom: 0;">--}}
+{{--                    <a class="nav-link text-white" href="https://www.creative-tim.com/product/argon-dashboard-pro-laravel" target="_blank">--}}
+{{--                        <i class="ni ni-cloud-download-95"></i> Upgrade to PRO--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+            </ul>
+            <!-- Divider -->
+{{--            <hr class="my-3">--}}
+{{--            <!-- Heading -->--}}
+{{--            <h6 class="navbar-heading text-muted">Documentation</h6>--}}
+{{--            <!-- Navigation -->--}}
+{{--            <ul class="navbar-nav mb-md-3">--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/getting-started/overview.html">--}}
+{{--                        <i class="ni ni-spaceship"></i> Getting started--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/foundation/colors.html">--}}
+{{--                        <i class="ni ni-palette"></i> Foundation--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a class="nav-link" href="https://argon-dashboard-laravel.creative-tim.com/docs/components/alerts.html">--}}
+{{--                        <i class="ni ni-ui-04"></i> Components--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
         </div>
     </div>
 </nav>

@@ -16,11 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
-Route::get('/', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('home_page');
-Route::get('/home', [\App\Http\Controllers\Backend\HomeController::class, 'index'])->name('home');
+Route::get('/export', 'App\Http\Controllers\Backend\ExportController@index')->name('export');
+Auth::routes();
 
-
-Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
@@ -33,5 +32,3 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
-
-Route::get('/export', 'App\Http\Controllers\Backend\ExportController@index')->name('export');
