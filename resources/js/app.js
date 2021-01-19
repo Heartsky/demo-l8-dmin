@@ -36,3 +36,4 @@ Vue.component('dashboard',require('./components/Dashboard.vue').default );
 const app2 = new Vue({
     el: '#dashboard'
 });
+console.log("abc");

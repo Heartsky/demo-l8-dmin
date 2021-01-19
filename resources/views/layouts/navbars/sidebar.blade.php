@@ -30,14 +30,14 @@
                         <i class="ni ni-settings-gear-65"></i>
                         <span>{{ __('Settings') }}</span>
                     </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-calendar-grid-58"></i>
-                        <span>{{ __('Activity') }}</span>
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="ni ni-support-16"></i>
-                        <span>{{ __('Support') }}</span>
-                    </a>
+{{--                    <a href="#" class="dropdown-item">--}}
+{{--                        <i class="ni ni-calendar-grid-58"></i>--}}
+{{--                        <span>{{ __('Activity') }}</span>--}}
+{{--                    </a>--}}
+{{--                    <a href="#" class="dropdown-item">--}}
+{{--                        <i class="ni ni-support-16"></i>--}}
+{{--                        <span>{{ __('Support') }}</span>--}}
+{{--                    </a>--}}
                     <div class="dropdown-divider"></div>
                     <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
@@ -83,104 +83,147 @@
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#navbar-statement" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-statement">
-                        <i class="ni ni-calendar-grid-58" style="color: #f4645f;"></i>
-                        <span class="nav-link-text" style="color: #f4645f;">{{ __('Statement') }}</span>
-                    </a>
 
-                    <div class="collapse show" id="navbar-statement">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('Working Survey') }}
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('Union Funds') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('Cash Funds') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('Customer Revenue') }}
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-customer" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-customer">
                         <i class="ni ni-diamond"></i>
-                        <span class="nav-link-text" >{{ __('Customer  Management') }}</span>
+                        <span class="nav-link-text" >{{ __('Master Management') }}</span>
                     </a>
 
                     <div class="collapse" id="navbar-customer">
                         <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('List Customer') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                </a>
-                            </li>
+                            @if (Auth::user()->hasRole("Admin"))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('User Management') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Customer Management') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Employee Management') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Company Management') }}
+                                    </a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->hasAnyRole(["Admin", "Manager", "ST_User"]))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Son Thanh Company Data') }}
+                                    </a>
+                                </li>
+                            @endif
+                            @if (Auth::user()->hasAnyRole(["Admin", "Manager", "TSV_User"]))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Tsv Company Data') }}
+                                    </a>
+                                </li>
+                            @endif
                         </ul>
                     </div>
+
                 </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#navbar-staff" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-staff">
-                        <i class="ni ni-circle-08" ></i>
-                        <span class="nav-link-text" >{{ __('Staff Management') }}</span>
+                @if (Auth::user()->hasAnyRole(["Admin", "Manager", "ST_User"]))
+                    <li class="nav-item">
+                    <a class="nav-link " href="#navbar-st" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-st">
+                        <i class="ni ni-calendar-grid-58"></i>
+                        <span class="nav-link-text">{{ __('ST Data') }}</span>
                     </a>
 
-                    <div class="collapse" id="navbar-staff">
+                    <div class="collapse " id="navbar-st">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    {{ __('List staff') }}
+                                    {{ __('Invoice') }}
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">
-                                    {{ __('Add Staff') }}
+                                    {{ __('Task Management Report') }}
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Revenue Report') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Finance Report') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Cash Book Report') }}
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    {{ __('Trade Union Report') }}
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </li>
+                @endif
+                @if (Auth::user()->hasAnyRole(["Admin", "Manager", "TSV_User"]))
+                    <li class="nav-item">
+                        <a class="nav-link " href="#navbar-tsv" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-tsv">
+                            <i class="ni ni-calendar-grid-58" ></i>
+                            <span class="nav-link-text" >{{ __('Tsv Data') }}</span>
+                        </a>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#navbar-account" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-account">
-                        <i class="ni ni-collection"></i>
-                        <span class="nav-link-text">{{ __('Account Management') }}</span>
-                    </a>
+                        <div class="collapse " id="navbar-tsv">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Invoice') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Task Management Report') }}
+                                    </a>
+                                </li>
 
-                    <div class="collapse" id="navbar-account">
-                        <ul class="nav nav-sm flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('List Account') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    {{ __('Add Account') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Revenue Report') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Finance Report') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Cash Book Report') }}
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">
+                                        {{ __('Trade Union Report') }}
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="#navbar-user" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-user">
                         <i class="ni ni-single-02" ></i>
@@ -190,12 +233,12 @@
                     <div class="collapse" id="navbar-user">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('profile.edit') }}">
+                                <a class="nav-link" href="{{ route('profile.show') }}">
                                     {{ __('Profile') }}
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('user.index') }}">
+                                <a class="nav-link" href="{{ route('profile.edit') }}">
                                     {{ __('Setting') }}
                                 </a>
                             </li>

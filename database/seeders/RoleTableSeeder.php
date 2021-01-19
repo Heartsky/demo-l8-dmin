@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RoleTableSeeder extends Seeder
@@ -13,6 +14,24 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $role_employee = new Role();
+        $role_employee->name = 'Admin';
+        $role_employee->description = 'Admin system';
+        $role_employee->save();
+
+        $role_employee = new Role();
+        $role_employee->name = 'Manager';
+        $role_employee->description = 'Manager system';
+        $role_employee->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'ST_User';
+        $role_manager->description = 'Son Thanh User';
+        $role_manager->save();
+
+        $role_manager = new Role();
+        $role_manager->name = 'TSV_User';
+        $role_manager->description = 'TSV User';
+        $role_manager->save();
     }
 }
