@@ -18,6 +18,7 @@ var App = {
     },
     activeMenu(e){
         var parent =  $(e).parents(".collapse").first();
+        $(e).addClass("active");
         parent.addClass("show");
         parent.parent().find('.nav-link').first().addClass("active").attr("aria-expanded", true);
     }
