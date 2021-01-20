@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -44,6 +45,15 @@ class MasterManagementController extends Controller
         $user = User::find($id);
         return view('pages.user_detail',['user' => $user]);
     }
+
+    public function userEdit(Request $request, $id)
+    {
+        $user = User::find($id);
+        $roles = Role::where('name', "<>", "Admin")->get();
+        return view('pages.user_edit',['user' => $user, 'roles' => $roles]);
+    }
+
+
 
 
 
