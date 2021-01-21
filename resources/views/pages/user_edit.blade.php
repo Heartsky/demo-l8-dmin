@@ -113,10 +113,9 @@
 
                                 <div class="form-group{{ $errors->has('role') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-role">{{ __('Role') }}</label>
-                                    <input type="email" name="email" id="input-email" class="form-control form-control-alternative{{ $errors->has('role') ? ' is-invalid' : '' }}" placeholder="{{ __('Role') }}" value="{{ old('role', $user->roles()->first()->name) }}" required>
-                                    <select class="form-control" id="input-role">
+                                    <select class="form-control" id="input-role" name="role">
                                         @foreach( $roles as $role)
-                                            <option>1</option>
+                                            <option value="{{$role->id}}" @if($user->roles()->first()->id == $role->id) selected @endif>{{$role->name}}</option>
                                         @endforeach
                                     </select>
                                     @if ($errors->has('role'))
