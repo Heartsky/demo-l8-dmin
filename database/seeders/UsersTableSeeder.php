@@ -16,6 +16,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        User::whereNotNull('email')->delete();
         $role_admin = Role::where('name', 'Admin')->first();
         $role_manager  = Role::where('name', 'Manager')->first();
         $role_st = Role::where('name', 'ST_User')->first();

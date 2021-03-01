@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 Route::get('/export', 'App\Http\Controllers\Backend\ExportController@index')->name('export');
-Auth::routes();
+
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
