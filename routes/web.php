@@ -25,8 +25,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);
     Route::get('profile', ['as' => 'profile.show', 'uses' => 'App\Http\Controllers\ProfileController@show']);
 	Route::get('setting', ['as' => 'profile.edit', 'uses' => 'App\Http\Controllers\ProfileController@edit']);
-
-
 	Route::put('setting', ['as' => 'profile.update', 'uses' => 'App\Http\Controllers\ProfileController@update']);
 	Route::get('upgrade', function () {return view('pages.upgrade');})->name('upgrade');
 	 Route::get('map', function () {return view('pages.maps');})->name('map');
@@ -36,6 +34,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('user-management', ['as' => 'master.user_management', 'uses' => 'App\Http\Controllers\MasterManagementController@userList']);
     Route::get('user-management/{id}', ['as' => 'master.user_detail', 'uses' => 'App\Http\Controllers\MasterManagementController@userDetail']);
+    Route::get('user-management/{id}/edit', ['as' => 'master.user_edit', 'uses' => 'App\Http\Controllers\MasterManagementController@userEdit']);
+    Route::put('user-management/{id}', ['as' => 'master.user_update', 'uses' => 'App\Http\Controllers\MasterManagementController@userUpdate']);
     Route::get('customer-management', ['as' => 'master.customer_management', 'uses' => 'App\Http\Controllers\MasterManagementController@customerManagement']);
     Route::get('employee-management', ['as' => 'master.employee_management', 'uses' => 'App\Http\Controllers\MasterManagementController@customerManagement']);
     Route::get('company-management', ['as' => 'master.employee_management', 'uses' => 'App\Http\Controllers\MasterManagementController@customerManagement']);

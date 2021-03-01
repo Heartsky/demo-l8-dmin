@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -45,6 +46,15 @@ class MasterManagementController extends Controller
         return view('pages.user_detail',['user' => $user]);
     }
 
+    public function userEdit(Request $request, $id)
+    {
+        $user = User::find($id);
+        $roles = Role::where('name', "<>", "Admin")->get();
+        return view('pages.user_edit',['user' => $user, 'roles' => $roles]);
+    }
+
+
+
 
 
     /**
@@ -53,13 +63,14 @@ class MasterManagementController extends Controller
      * @param  \App\Http\Requests\ProfileRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(ProfileRequest $request)
+    public function userUpdate(Request $request, $id)
     {
-        if (auth()->user()->id == 1) {
-            return back()->withErrors(['not_allow_profile' => __('You are not allowed to change data for a default user.')]);
-        }
 
-        auth()->user()->update($request->all());
+//        if (auth()->user()->id == 1) {
+//            return back()->withErrors(['not_allow_profile' => __('You are not allowed to change data for a default user.')]);
+//        }
+        $user = User::find($id);
+        $user->update($request->all());
 
         return back()->withStatus(__('Profile successfully updated.'));
     }
